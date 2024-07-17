@@ -1,0 +1,30 @@
+﻿<Page x:Class="Wpf_App.myPage.Page3"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Wpf_App.myPage"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="400"
+      Title="Page3">
+
+
+    <Grid>
+
+        <WrapPanel x:Name="myWrapPanel" Grid.Row="2" Grid.Column ="1" >
+            
+        </WrapPanel>
+        <!--
+        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <DockPanel  Height="80" Width="80" Background="AliceBlue">
+                <TextBlock x:Name="textblock1" FontSize="12" Text="123" TextWrapping="Wrap" FontWeight="Bold"  Width="15" TextAlignment="Center" VerticalAlignment="Center" >
+
+                </TextBlock>
+                <ScrollViewer  VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible">
+                    <DataGrid x:Name="datagrid1" SelectionUnit="Cell" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserSortColumns="False" >
+                    </DataGrid>
+                </ScrollViewer>
+            </DockPanel>
+        </WrapPanel> -->
+    </Grid>
+</Page>

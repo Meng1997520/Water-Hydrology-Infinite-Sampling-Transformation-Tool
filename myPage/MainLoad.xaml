@@ -1,0 +1,526 @@
+﻿<Page x:Class="Wpf_App.myPage.MainLoad"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Wpf_App.myPage"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1000"
+      Title="MainLoad">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="154"></RowDefinition>
+            <RowDefinition  Height="25"></RowDefinition>
+            <RowDefinition  Height="450"></RowDefinition>
+            <RowDefinition  ></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=" 1*"/>
+
+                <ColumnDefinition Width=" 10*" />
+
+            </Grid.ColumnDefinitions>
+            <!-- 按钮 -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=" 10*"/>
+
+                    <ColumnDefinition Width=" 1*" />
+
+                </Grid.ColumnDefinitions>
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition  Height="1*"></RowDefinition>
+                        <RowDefinition  Height="1*"></RowDefinition>
+                        <RowDefinition  Height="1*"></RowDefinition>
+                        <RowDefinition  Height="1*"></RowDefinition>
+                        <RowDefinition  Height="1*"></RowDefinition>
+                        <RowDefinition  Height="1*"></RowDefinition>
+                        <RowDefinition  Height="1*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Button  Content="red"  Command="{Binding showRed}" Grid.Row="0"  />
+
+                    <Button  Content="blue"  Command="{Binding showBlue}" Grid.Row="1"  />
+                    <Button  Content="refresh" Click= "refreshClick" Grid.Row="2" />
+                    <Button  Content="undo"  Command="{Binding showUndo}"   Grid.Row="3"/>
+                    <Button  Content="slash"  Command="{Binding showSlash}"   Grid.Row="4"/>
+                    <Button  Content="vertical"  Command="{Binding showVertical}"   Grid.Row="5"/>
+                    <Button  Content="transverse"  Command="{Binding showTransverse}"   Grid.Row="6"/>
+                    <Button  Content="clear"  Command="{Binding showClear}"  Grid.Row="7"/>
+                </Grid>
+            </Grid>
+
+
+            <!-- 表格和滚动条 -->
+            <ScrollViewer  Grid.Column="1" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto">
+                <DataGrid  x:Name="dataGrid" ItemsSource="{Binding}"  SelectionUnit="Cell" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserSortColumns="False" CanUserReorderColumns="False" >
+                    <DataGrid.Columns>
+                        <!-- 这里添加你的列，注意使用绑定 -->
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [0].Value}" Foreground="{Binding [0].ForeColor}" FontWeight="Bold"/>
+                                    </Canvas>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [1].Value}" Foreground="{Binding [1].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [2].Value}" Foreground="{Binding [2].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [3].Value}" Foreground="{Binding [3].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [4].Value}" Foreground="{Binding [4].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [5].Value}" Foreground="{Binding [5].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [6].Value}" Foreground="{Binding [6].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [7].Value}" Foreground="{Binding [7].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [8].Value}" Foreground="{Binding [8].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [9].Value}" Foreground="{Binding [9].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [10].Value}" Foreground="{Binding [10].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [11].Value}" Foreground="{Binding [11].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [12].Value}" Foreground="{Binding [12].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [13].Value}" Foreground="{Binding [13].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [14].Value}" Foreground="{Binding [14].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [15].Value}" Foreground="{Binding [15].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [16].Value}" Foreground="{Binding [16].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [17].Value}" Foreground="{Binding [17].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [18].Value}" Foreground="{Binding [18].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [19].Value}" Foreground="{Binding [19].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding [20].Value}" Foreground="{Binding [20].ForeColor}"  FontWeight="Bold"/>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [21].Value}" Foreground="{Binding [21].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [22].Value}" Foreground="{Binding [22].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [23].Value}" Foreground="{Binding [23].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [24].Value}" Foreground="{Binding [24].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [25].Value}" Foreground="{Binding [25].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [26].Value}" Foreground="{Binding [26].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [27].Value}" Foreground="{Binding [27].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [28].Value}" Foreground="{Binding [28].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [29].Value}" Foreground="{Binding [29].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [30].Value}" Foreground="{Binding [30].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [31].Value}" Foreground="{Binding [31].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [32].Value}" Foreground="{Binding [32].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [33].Value}" Foreground="{Binding [33].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [34].Value}" Foreground="{Binding [34].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [35].Value}" Foreground="{Binding [35].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [36].Value}" Foreground="{Binding [36].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [37].Value}" Foreground="{Binding [37].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [38].Value}" Foreground="{Binding [38].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [39].Value}" Foreground="{Binding [39].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="" Width="20">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Canvas x:Name="canvas">
+                                        <TextBlock Text="{Binding [40].Value}" Foreground="{Binding [40].ForeColor}"  FontWeight="Bold"/>
+                                    </Canvas>
+                                    <!-- 如果需要添加横线，可以在这里使用 Line 或其他元素 -->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <!-- 添加更多的列，使用类似的结构 -->
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+            </ScrollViewer>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width ="1*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="5*" />
+
+            </Grid.ColumnDefinitions>
+            <WrapPanel VerticalAlignment="Center">
+                <TextBox x:Name="Tai" Width="30" Background="AliceBlue"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBlock  Text="台" FontSize="12" FontWeight="Bold" />
+                <TextBox x:Name="Hao" Width="30"  Background="AliceBlue"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBlock  Text="号" FontSize="12" FontWeight="Bold" />
+            </WrapPanel>
+            <WrapPanel Grid.Column="1"  VerticalAlignment="Center">
+                <Button Content="确定" Width="50" Margin="10,0,0,0"></Button>
+                <Button Content="重设" Width="50" Margin="10,0,0,0"></Button>
+            </WrapPanel >
+
+            <WrapPanel Grid.Column="2"  VerticalAlignment="Center">
+                <TextBlock  Text="总次数" FontSize="12" FontWeight="Bold" />
+                <TextBlock  x:Name="AllCount" Width="20" Background="AliceBlue" FontSize="12" FontWeight="Bold" />
+                <TextBlock  Text="红" FontSize="12" FontWeight="Bold" />
+                <TextBlock  x:Name="RedCount" Width="30" Background="AliceBlue" FontSize="12" FontWeight="Bold" TextAlignment="Center" Foreground="Red"/>
+                <TextBlock  Text="蓝" FontSize="12" FontWeight="Bold" />
+                <TextBlock  x:Name="BlueCount" Width="30" Background="AliceBlue" FontSize="12" FontWeight="Bold" TextAlignment="Center" Foreground="Blue"/>
+
+                <Line X1="0" Y1="12" X2="15" Y2="0" Stroke="Orange" StrokeThickness="2"/>
+                <TextBlock  x:Name="SlashCount" Width="30" Background="AliceBlue" FontSize="12" FontWeight="Bold" TextAlignment="Center" Foreground="Orange"/>
+                <Line X1="0" Y1="6" X2="15" Y2="6" Stroke="Green" StrokeThickness="2"/>
+                <TextBlock  x:Name="VertialaCount" Width="30" Background="AliceBlue" FontSize="12" FontWeight="Bold" TextAlignment="Center" Foreground="Green"/>
+                <Grid Width="15">
+
+                    <Line X1="8" Y1="0" X2="8" Y2="15" Stroke="Aqua" StrokeThickness="2"/>
+                </Grid>
+                <TextBlock  x:Name="TransverseCount" Width="30" Background="AliceBlue" FontSize="12" FontWeight="Bold" TextAlignment="Center" Foreground="Aqua" />
+            </WrapPanel>
+
+        </Grid>
+
+        <Frame x:Name="myFrame" Grid.Row="2" NavigationUIVisibility="Hidden"></Frame>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=" 1*"/>
+
+                <ColumnDefinition Width=" 1*" />
+
+            </Grid.ColumnDefinitions>
+            <Button HorizontalAlignment="Center" Click="UpPage" VerticalAlignment="Center" Width="200" Height="30" Content="上 一 页" FontSize="16"></Button>
+            <Button Click="DownPage" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="30" Content="下 一 页" FontSize="16"></Button>
+        </Grid>
+    </Grid>
+</Page>
